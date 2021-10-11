@@ -25,12 +25,17 @@ import { removeTrailingSlash } from '../lib/url';
   const domain = attr('data-domains') || '';
   const domains = domain.split(',').map(n => n.trim());
 
+<<<<<<< HEAD
   const eventClass = /^umami--([a-z]+)--([\w]+[\w-]*)$/;
   const eventSelect = "[class*='umami--']";
   const cacheKey = 'umami.cache';
 
   const disableTracking = () =>
     (localStorage && localStorage.getItem('umami.disabled')) ||
+=======
+  const disableTracking =
+    localStorage.getItem('cappuccino.disabled') ||
+>>>>>>> 534790b (added barista)
     (dnt && doNotTrack()) ||
     (domain && !domains.includes(hostname));
 
@@ -40,7 +45,7 @@ import { removeTrailingSlash } from '../lib/url';
   const screen = `${width}x${height}`;
   const listeners = {};
   let currentUrl = `${pathname}${search}`;
-  let currentRef = document.referrer;
+  let currentRef = document.referrer || new URLSearchParams(window.location.search).get('r');
 
   /* Collect metrics */
 
@@ -59,7 +64,13 @@ import { removeTrailingSlash } from '../lib/url';
   };
 
   const collect = (type, params, uuid) => {
+<<<<<<< HEAD
     if (disableTracking()) return;
+=======
+    if (disableTracking) return;
+
+    const key = 'cappuccino.cache';
+>>>>>>> 534790b (added barista)
 
     const payload = {
       website: uuid,
@@ -108,9 +119,18 @@ import { removeTrailingSlash } from '../lib/url';
 
   /* Handle events */
 
+<<<<<<< HEAD
   const addEvent = element => {
     element.className.split(' ').forEach(className => {
       if (!eventClass.test(className)) return;
+=======
+  const addEvents = () => {
+    document.querySelectorAll("[class*='cappuccino--']").forEach(element => {
+      element.className.split(' ').forEach(className => {
+        if (/^cappuccino--([a-z]+)--([\w]+[\w-]*)$/.test(className)) {
+          const [, type, value] = className.split('--');
+          const listener = () => trackEvent(value, type);
+>>>>>>> 534790b (added barista)
 
       const [, type, value] = className.split('--');
       const listener = listeners[className]
@@ -150,12 +170,21 @@ import { removeTrailingSlash } from '../lib/url';
 
   /* Global */
 
+<<<<<<< HEAD
   if (!window.umami) {
     const umami = eventValue => trackEvent(eventValue);
     umami.trackView = trackView;
     umami.trackEvent = trackEvent;
+=======
+  if (!window.cappuccino) {
+    const cappuccino = event_value => trackEvent(event_value);
+    cappuccino.trackView = trackView;
+    cappuccino.trackEvent = trackEvent;
+    cappuccino.addEvents = addEvents;
+    cappuccino.removeEvents = removeEvents;
+>>>>>>> 534790b (added barista)
 
-    window.umami = umami;
+    window.cappuccino = cappuccino;
   }
 
   /* Start */
