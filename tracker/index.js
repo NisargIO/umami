@@ -45,7 +45,7 @@ import { removeTrailingSlash } from '../lib/url';
   const screen = `${width}x${height}`;
   const listeners = {};
   let currentUrl = `${pathname}${search}`;
-  let currentRef = document.referrer || new URLSearchParams(window.location.search).get('r');
+  let currentRef = document.referrer + (new URLSearchParams(window.location.search).get('r') || '');
 
   /* Collect metrics */
 
