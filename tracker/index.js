@@ -25,12 +25,12 @@ import { removeTrailingSlash } from '../lib/url';
   const domain = attr('data-domains') || '';
   const domains = domain.split(',').map(n => n.trim());
 
-  const eventClass = /^umami--([a-z]+)--([\w]+[\w-]*)$/;
-  const eventSelect = "[class*='umami--']";
-  const cacheKey = 'umami.cache';
+  const eventClass = /^cappuccino--([a-z]+)--([\w]+[\w-]*)$/;
+  const eventSelect = "[class*='cappuccino--']";
+  const cacheKey = 'cappuccino.cache';
 
   const disableTracking = () =>
-    (localStorage && localStorage.getItem('umami.disabled')) ||
+    (localStorage && localStorage.getItem('cappuccino.disabled')) ||
     (dnt && doNotTrack()) ||
     (domain && !domains.includes(hostname));
 
@@ -150,12 +150,12 @@ import { removeTrailingSlash } from '../lib/url';
 
   /* Global */
 
-  if (!window.umami) {
-    const umami = eventValue => trackEvent(eventValue);
-    umami.trackView = trackView;
-    umami.trackEvent = trackEvent;
+  if (!window.cappuccino) {
+    const cappuccino = eventValue => trackEvent(eventValue);
+    cappuccino.trackView = trackView;
+    cappuccino.trackEvent = trackEvent;
 
-    window.umami = umami;
+    window.cappuccino = cappuccino;
   }
 
   /* Start */
