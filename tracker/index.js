@@ -35,7 +35,10 @@ import { removeTrailingSlash } from '../lib/url';
 =======
   const disableTracking =
     localStorage.getItem('cappuccino.disabled') ||
+<<<<<<< HEAD
 >>>>>>> 534790b (added barista)
+=======
+>>>>>>> ef85d164976b581bd915e60e538ef77244d3523b
     (dnt && doNotTrack()) ||
     (domain && !domains.includes(hostname));
 
@@ -70,7 +73,10 @@ import { removeTrailingSlash } from '../lib/url';
     if (disableTracking) return;
 
     const key = 'cappuccino.cache';
+<<<<<<< HEAD
 >>>>>>> 534790b (added barista)
+=======
+>>>>>>> ef85d164976b581bd915e60e538ef77244d3523b
 
     const payload = {
       website: uuid,
@@ -171,18 +177,24 @@ import { removeTrailingSlash } from '../lib/url';
   /* Global */
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (!window.umami) {
     const umami = eventValue => trackEvent(eventValue);
     umami.trackView = trackView;
     umami.trackEvent = trackEvent;
 =======
+=======
+>>>>>>> ef85d164976b581bd915e60e538ef77244d3523b
   if (!window.cappuccino) {
     const cappuccino = event_value => trackEvent(event_value);
     cappuccino.trackView = trackView;
     cappuccino.trackEvent = trackEvent;
     cappuccino.addEvents = addEvents;
     cappuccino.removeEvents = removeEvents;
+<<<<<<< HEAD
 >>>>>>> 534790b (added barista)
+=======
+>>>>>>> ef85d164976b581bd915e60e538ef77244d3523b
 
     window.cappuccino = cappuccino;
   }
