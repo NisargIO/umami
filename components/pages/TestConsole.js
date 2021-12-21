@@ -41,15 +41,7 @@ export default function TestConsole() {
     <Page>
       <Head>
         {typeof window !== 'undefined' && website && (
-<<<<<<< HEAD
-<<<<<<< HEAD
-          <script async defer data-website-id={website.website_uuid} src={`${basePath}/umami.js`} />
-=======
           <script async defer data-website-id={website.website_uuid} src="/barista.js" />
->>>>>>> 534790b (added barista)
-=======
-          <script async defer data-website-id={website.website_uuid} src="/barista.js" />
->>>>>>> ef85d164976b581bd915e60e538ef77244d3523b
         )}
       </Head>
       <PageHeader>
