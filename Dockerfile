@@ -3,7 +3,7 @@ FROM node:12.22-alpine AS build
 ARG BASE_PATH
 ARG DATABASE_TYPE
 ENV BASE_PATH=$BASE_PATH
-ENV DATABASE_URL "postgresql://umami:umami@db:5432/umami" \
+ENV DATABASE_URL "postgresql://cappuccino:cappuccino@db:5432/cappuccino" \
     DATABASE_TYPE=$DATABASE_TYPE
 WORKDIR /build
 

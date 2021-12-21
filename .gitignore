@@ -15,7 +15,7 @@
 
 # production
 /build
-/public/umami.js
+/public/cappuccino.js
 /public/geo
 /public/lang
 /lang-compiled

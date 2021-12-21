@@ -53,7 +53,7 @@ export function checkVersion() {
       },
     } = getState();
 
-    const data = await fetch('https://api.github.com/repos/mikecao/umami/releases/latest', {
+    const data = await fetch('https://api.github.com/repos/mikecao/cappuccino/releases/latest', {
       method: 'get',
       headers: {
         Accept: 'application/vnd.github.v3+json',
